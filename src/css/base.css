@@ -1,0 +1,74 @@
+@charset "utf-8";
+/**********************
+/样式重置
+**********************/
+html,body,div,span,applet,object,iframe,table,caption,tbody,tfoot,thead,tr,th,td,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,acronym,address,big,cite,code,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input{margin:0;padding:0;list-style:none;border:0}
+h1,h2,h3,h4,h5,h6{font-weight:400}
+body{font-size:12px;color:#333;}
+body,body *{font-family:"\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei","微软雅黑";}
+a{cursor:pointer;text-decoration:none;font-size:12px;color:inherit;outline:none}
+a:hover,a:active,a:link,a:visited{text-decoration:none;outline:none}
+br{line-height:8px;margin:0px;}
+html,body{ min-width:1349px;width:100%;background:#f2f4f8;}
+.tc{text-align:center;}
+
+/********************************
+*项目全局公共样式
+********************************/
+/* 自定义滚动条样式 */
+.beauty-scroll-bar::-webkit-scrollbar,.el-table__body-wrapper::-webkit-scrollbar{
+    width: 5px;
+    height:5px;
+}
+
+/* 滚动条两端的按钮 */
+.beauty-scroll-bar::-webkit-scrollbar-button ,.el-table__body-wrapper::-webkit-scrollbar-button{
+    display: none;
+}
+
+/* 外层轨道 */
+.beauty-scroll-bar::-webkit-scrollbar-track,.el-table__body-wrapper::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+/* 滚动的滑块 */
+.beauty-scroll-bar::-webkit-scrollbar-thumb,.el-table__body-wrapper::-webkit-scrollbar-thumb {
+    width:4px;
+    border-radius: 5px;
+    background-color: #c8c8c8;
+}
+
+/* 边角 */
+.beauty-scroll-bar::-webkit-scrollbar-corner,.el-table__body-wrapper::-webkit-scrollbar-corner {
+    display: none;
+}
+
+/* 右下角拖动块 */
+.beauty-scroll-bar::-webkit-resizer,.el-table__body-wrapper::-webkit-resizer {
+    display: none;
+}
+/* 清除ie下输入框自带清除图标 */
+input::-ms-clear { display: none; }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.app_wrap{
+    width: 1120px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/* 清除浮动 */
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0} 
+/* html标签 */
+table{width:100%;}
+thead{background-color:#F6F6F6;font-size:12px;color:#767C93;line-height: 20px;}
+th{font-weight: normal;}
+textarea{border:1px solid #CBCED8;border-radius: 3px;resize: none;}
+
+.left{float: left};
+.right{float: right}
+
+
+/* 覆盖element-ui样式 */
