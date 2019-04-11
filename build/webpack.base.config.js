@@ -15,11 +15,11 @@ const cssModuleOption = {
         sourceMaps:true
     // },
 };
-const DEV = env === 'local';
+const DEV = env === 'dev';
 module.exports = {
     entry: {
-        main: [path.join(__dirname, '../src/entry/main.js')],
-        core: ['vue', 'vue-router']
+        main: path.join(__dirname, '../src/entry/main.js'),
+        core: ['vue', 'vue-router','vuex','axios']
     },
     output: {
         path: path.join(__dirname, '../dist'),
@@ -40,10 +40,14 @@ module.exports = {
             chunksSortMode: 'dependency',
             // favicon:path.join(__dirname, './src/img/favicon.ico'),
             inject: 'body',
-            chunks: ['main', 'core', 'vendor']
+            chunks: ['main', 'core', 'vendor'],
+            hash:true,
+            minify:{
+                removeAttributeQuotes:true//压缩 去掉引号
+            }
         }),
         new webpack.DefinePlugin({
-            __LOCAL__: env === 'local',
+            __LOCAL__: env === 'dev',
             __PROD__: env === 'prod'
         }),
         new VueLoaderPlugin(),
@@ -51,10 +55,11 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new MiniCssExtractPlugin({
             filename: DEV ? 'css/[name].css' : 'css/[hash:8].[name].min.css',
+            chunkFilename: DEV ? 'css/[id].css' : 'css/[hash:8].[id].css',
             allChunks: true
         }),
         new webpack.ProvidePlugin({
-            Vue: [path.resolve('node_modules/vue/dist/vue.esm.js'),'default'] // 下载vue
+            Vue:path.resolve('../node_modules/vue/dist/vue.esm.js')// 下载vue
         }),
 
         new HappyPack({
@@ -65,7 +70,6 @@ module.exports = {
     ],
     optimization: { // webpack4.0打包相同代码配置
         splitChunks: {
-            // maxSize:50000,
             cacheGroups: {// 单独提取JS文件引入html
                 core: {
                     chunks: 'initial',
@@ -74,6 +78,7 @@ module.exports = {
                 },
                 commons: {
                     chunks: 'all',
+                    minSize:1,
                     minChunks: 2,
                     name: 'vendor',
                 },
@@ -99,7 +104,7 @@ module.exports = {
                     {
                         resourceQuery: /module/,
                         use: [
-                            'css-hot-loader', MiniCssExtractPlugin.loader,
+                            'css-hot-loader', MiniCssExtractPlugin.loader,'postcss-loader',
                             {
                                 loader: 'css-loader',
                                 options: cssModuleOption
@@ -108,7 +113,7 @@ module.exports = {
                         ]
                     },
                     {
-                        use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader']
+                        use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader','postcss-loader']
                     }
                 ],
             },
@@ -117,7 +122,6 @@ module.exports = {
                 use: [
                     'css-hot-loader',
                     MiniCssExtractPlugin.loader,
-                    // 'vue-style-loader',
                     {
                         loader: 'css-loader',
                         options: cssModuleOption

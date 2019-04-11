@@ -2,12 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import app from '../pages/App/app.vue';
 
-import ReceptionPortal from '../pages/ReceptionPortal/main.vue';
-import ReceptionCenter from '../pages/ReceptionCenter/main.vue';
-import MyReception from '../pages/MyReception/main.vue';
-
-import MyAttend from '../pages/MyAttend/main.vue';
-
 
 Vue.use(VueRouter);
 
@@ -20,38 +14,38 @@ const routesMap = [
         children:[
             {
                 path:'/r',
-                // redirect:'/r/reception_center',
-                component:ReceptionPortal,
+                redirect:'/r/reception_center',
+                component:(resolve)=>{require(['../pages/ReceptionPortal/main.vue'],resolve)},
                 name:'study protal',
                 children:[
-                    // {
-                    //     path:'/r/reception_center',
-                    //     component:ReceptionCenter,
-                    //     name:'node crud',
-                    //     meta:{
-                    //         leftMuen:true,
-                    //         muenIndex:0
-                    //     }
-                    // },
-                    // {
-                    //     path:'/r/my_reception',
-                    //     component:MyReception,
-                    //     name:'pdf',
-                    //     meta:{
-                    //         leftMuen:true,
-                    //         muenIndex:0
-                    //     }
-                    // },
+                    {
+                        path:'/r/reception_center',
+                        component:(resolve)=>{require(['../pages/ReceptionCenter/main.vue'],resolve)},
+                        name:'node crud',
+                        meta:{
+                            leftMuen:true,
+                            muenIndex:0
+                        }
+                    },
+                    {
+                        path:'/r/my_reception',
+                        component:(resolve)=>{require(['../pages/MyReception/main.vue'],resolve)},
+                        name:'pdf',
+                        meta:{
+                            leftMuen:true,
+                            muenIndex:0
+                        }
+                    },
                     
-                    // {
-                    //     path:'/r/my_attend',
-                    //     component:MyAttend,
-                    //     name:'node chat room',
-                    //     meta:{
-                    //         leftMuen:true,
-                    //         muenIndex:0
-                    //     }
-                    // },
+                    {
+                        path:'/r/my_attend',
+                        component:(resolve)=>{require(['../pages/MyAttend/main.vue'],resolve)},
+                        name:'node chat room',
+                        meta:{
+                            leftMuen:true,
+                            muenIndex:0
+                        }
+                    },
                 ]
             },
         ]

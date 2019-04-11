@@ -18,23 +18,6 @@ const devConfig = {
     plugins: [
         new OpenBrowserPlugin({ url: 'http://localhost:8888/main.html' }),
     ],
-    optimization: { // webpack4.0打包相同代码配置
-        splitChunks: {
-            // maxSize:50000,
-            cacheGroups: {// 单独提取JS文件引入html
-                core: {
-                    chunks: 'initial',
-                    name: 'core',// 入口的entry的key
-                    enforce: true
-                },
-                commons: {
-                    chunks: 'all',
-                    minChunks: 2,
-                    name: 'vendor',
-                },
-            }
-        }
-    },
 };
 
 module.exports = merge(baseWebpackConfig,devConfig);
