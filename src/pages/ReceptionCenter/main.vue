@@ -21,8 +21,7 @@ export default {
     },
    
     mounted(){
-       
-
+        // console.log(Vue)
     },
     created(){
      

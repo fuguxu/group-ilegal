@@ -14,8 +14,7 @@ new Vue({
     render: h => h(App),
 }).$mount('#app');
 
-console.log('prod',window.__PROD__);
-if (window.__PROD__){
+if (__PROD__){
     Vue.config.devtools = false;
 } else {
     Vue.config.devtools = true;

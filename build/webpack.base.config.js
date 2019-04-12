@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const env = process.env.NODE_ENV;
+const DEV = env === 'dev';
 const HappyPack = require('happypack');
 const happyThreadPool = HappyPack.ThreadPool({ size: 5 });
 const cssModuleOption = {
@@ -15,7 +16,7 @@ const cssModuleOption = {
         sourceMaps:true
     // },
 };
-const DEV = env === 'dev';
+
 module.exports = {
     entry: {
         main: path.join(__dirname, '../src/entry/main.js'),
@@ -47,7 +48,7 @@ module.exports = {
             }
         }),
         new webpack.DefinePlugin({
-            __LOCAL__: env === 'dev',
+            __DEV__: env === 'dev',
             __PROD__: env === 'prod'
         }),
         new VueLoaderPlugin(),
@@ -59,7 +60,7 @@ module.exports = {
             allChunks: true
         }),
         new webpack.ProvidePlugin({
-            Vue:path.resolve('../node_modules/vue/dist/vue.esm.js')// 下载vue
+            Vue:[path.resolve(__dirname,'../node_modules/vue/dist/vue.esm.js'),'default'],
         }),
 
         new HappyPack({
@@ -73,6 +74,7 @@ module.exports = {
             cacheGroups: {// 单独提取JS文件引入html
                 core: {
                     chunks: 'initial',
+                    test: /node_modules/,
                     name: 'core',// 入口的entry的key
                     enforce: true
                 },
