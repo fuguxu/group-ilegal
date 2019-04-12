@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const env = process.env.NODE_ENV;
 const DEV = env === 'dev';
 const HappyPack = require('happypack');
@@ -20,7 +21,6 @@ const cssModuleOption = {
 module.exports = {
     entry: {
         main: path.join(__dirname, '../src/entry/main.js'),
-        core: ['vue', 'vue-router','vuex','axios']
     },
     output: {
         path: path.join(__dirname, '../dist'),
@@ -62,7 +62,17 @@ module.exports = {
         new webpack.ProvidePlugin({
             Vue:[path.resolve(__dirname,'../node_modules/vue/dist/vue.esm.js'),'default'],
         }),
-
+        new webpack.DllReferencePlugin({
+            manifest: require('../src/public/dll/vendor.manifest')
+        }),
+        new AddAssetHtmlPlugin([
+            {
+                filepath: path.resolve(__dirname,'../src/public/dll/_dll_vendor.js'),
+                outputPath: 'dll',
+                publicPath: 'dll',
+                includeSourcemap: false
+            }
+        ]),
         new HappyPack({
             id: 'babel',
             loaders: ['babel-loader?cacheDirectory'],
@@ -72,12 +82,12 @@ module.exports = {
     optimization: { // webpack4.0打包相同代码配置
         splitChunks: {
             cacheGroups: {// 单独提取JS文件引入html
-                core: {
-                    chunks: 'initial',
-                    test: /node_modules/,
-                    name: 'core',// 入口的entry的key
-                    enforce: true
-                },
+                // core: {
+                //     chunks: 'initial',
+                //     test: /node_modules/,
+                //     name: 'core',// 入口的entry的key
+                //     enforce: true
+                // },
                 commons: {
                     chunks: 'all',
                     minSize:1,
