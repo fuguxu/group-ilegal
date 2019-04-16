@@ -10,9 +10,9 @@ module.exports = {
     vendor: ['vue', 'vue-router','vuex','axios','es6-promise']
   },
   output: {
-    path: resolve('src/public'),
+    path: resolve('src/public/dll'),
     library: '_dll_[name]',
-    filename: 'dll/_dll_[name].js'
+    filename: '_dll_[name].js'
   },
   plugins: [
     new CleanWebpaclPlugin(),
