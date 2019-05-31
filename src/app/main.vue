@@ -5,11 +5,11 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            msg:'hello world'
-        }
+  data () {
+    return {
+      msg: 'hello world'
     }
+  }
 }
 </script>
 <style lang="scss" scoped>

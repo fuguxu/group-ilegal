@@ -9,17 +9,17 @@
     </div>
 </template>
 <script>
-import SideBar from '../SideBar/main';
+import SideBar from '../SideBar/main'
 export default {
-    data(){
-        return {
+  data () {
+    return {
 
-        };
-    },
-    components:{
-        SideBar
     }
-};
+  },
+  components: {
+    SideBar
+  }
+}
 </script>
 <style lang="scss" module>
     .reception-portal{

@@ -1,13 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
-const CleanWebpaclPlugin = require('clean-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const CleanWebpaclPlugin = require('clean-webpack-plugin')
 
-const resolve = (dir) => path.join(__dirname, '..', dir);
+const resolve = (dir) => path.join(__dirname, '..', dir)
 
 module.exports = {
-  mode:'production',
+  mode: 'production',
   entry: {
-    vendor: ['vue', 'vue-router','vuex','axios','es6-promise']
+    vendor: ['vue/dist/vue.runtime.esm.js', 'vue-router', 'vuex', 'axios'],
+    polyfill: ['babel-polyfill']
   },
   output: {
     path: resolve('src/public/dll'),

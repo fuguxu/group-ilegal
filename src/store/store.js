@@ -1,14 +1,12 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import modules from './modules/index';
-if(!window.promise){
-    require('es6-promise').polyfill();
-}
-Vue.use(Vuex);
+import modules from './modules/index'
 
-let store = new Vuex.Store({
-    modules
-});
+Vue.use(Vuex)
 
-export default store;
+const store = new Vuex.Store({
+  modules
+})
+
+export default store

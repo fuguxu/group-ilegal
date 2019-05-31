@@ -9,20 +9,20 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            muens:[]
-        }
-    },
-    created(){
-        let muenIndex=this.$route.meta.muenIndex;
-        let routers=this.$router.options.routes[0].children;
-        if(muenIndex!==undefined&&routers[muenIndex].children){
-            this.muens=routers[muenIndex].children.filter(item=>{
-                return item.meta.leftMuen
-            })
-        }
+  data () {
+    return {
+      muens: []
     }
+  },
+  created () {
+    let muenIndex = this.$route.meta.muenIndex
+    let routers = this.$router.options.routes[0].children
+    if (muenIndex !== undefined && routers[muenIndex].children) {
+      this.muens = routers[muenIndex].children.filter(item => {
+        return item.meta.leftMuen
+      })
+    }
+  }
 }
 </script>
 <style lang="scss" module>
@@ -35,7 +35,7 @@ export default {
             display: inline-block;
             width:100%;
             box-sizing: border-box;
-            
+
         }
     }
 </style>

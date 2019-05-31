@@ -1,25 +1,24 @@
 <template>
     <div>
-        
+
     </div>
 </template>
 <script>
 export default {
-    data(){
-        return {
-        
-        }
-    },
-    
-    mounted(){
-        
+  data () {
+    return {
 
-    },
-    created(){
-        
-    },
-    methods:{
-        
     }
+  },
+
+  mounted () {
+
+  },
+  created () {
+
+  },
+  methods: {
+
+  }
 }
 </script>

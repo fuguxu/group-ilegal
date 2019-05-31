@@ -8,18 +8,18 @@
     </div>
 </template>
 <script>
-import headerBar from '../HeaderBar/main';
-import footerBar from '../FooterBar/main';
+import headerBar from '../HeaderBar/main'
+import footerBar from '../FooterBar/main'
 export default {
-    data(){
-        return {
-           
-        }
-    },
-    components:{
-        headerBar,
-        footerBar
+  data () {
+    return {
+
     }
+  },
+  components: {
+    headerBar,
+    footerBar
+  }
 }
 </script>
 <style lang="scss" module>
