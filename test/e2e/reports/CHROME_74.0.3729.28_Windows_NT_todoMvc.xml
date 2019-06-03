@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="todoMvc"
+    errors="0" failures="0" hostname="" id="" package="todoMvc" skipped="0"
+    tests="1" time="0.8710" timestamp="">
+  
+    <testcase name="todomvc" classname="todoMvc" time="0.8710" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

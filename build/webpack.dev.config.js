@@ -5,7 +5,7 @@ const merge = require('webpack-merge')
 const devConfig = {
   devtool: '#eval-source-map',
   devServer: {
-    // contentBase: path.resolve(__dirname, 'dist'),
+    // contentBase: '../',
     hot: true,
     inline: true,
     publicPath: '',
