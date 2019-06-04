@@ -9,3 +9,6 @@ export default {
 export function test () {
   console.log('测试没有用到的函数')
 }
+export function testPR () {
+  console.log('test_pr')
+}
