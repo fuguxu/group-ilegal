@@ -6,4 +6,5 @@ dist
 .idea
 npm-debug.log
 .vscode
+.history
 # package-lock.json

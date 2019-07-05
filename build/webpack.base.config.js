@@ -62,7 +62,7 @@ module.exports = {
       allChunks: true
     }),
     new webpack.ProvidePlugin({
-      Vue: [path.resolve(__dirname, '../node_modules/vue/dist/vue.esm.js'), 'default']
+      Vue: [path.resolve(__dirname, '../node_modules/vue/dist/vue.runtime.esm.js'), 'default']
     }),
     new webpack.DllReferencePlugin({
       manifest: require('../src/public/dll/vendor.manifest')
