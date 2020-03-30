@@ -23,7 +23,7 @@ const BaseAxiosOptions = {
   headers: { 'content-type': 'application/json' }
 }
 
-// mip模块相关接口
+// 模块相关接口
 const MipBaseUrl = `${MipBasePrefix}`
 const mipAxios = axios.create(Object.assign({}, { baseURL: MipBaseUrl }, BaseAxiosOptions))
 export const mipModuleApi = makeFetch(mipAxios)

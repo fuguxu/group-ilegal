@@ -98,21 +98,28 @@ module.exports = {
       root: '_'
     }
   },
-  optimization: { // webpack4.0打包相同代码配置
+  optimization: { // webpack4.0打包相同代码配置  一般多入口时使用
     // concatenateModules:true,
     splitChunks: {
-      cacheGroups: {// 单独提取JS文件引入html
+      cacheGroups: {// 缓存组 单独提取JS文件引入html
         // core: {
         //     chunks: 'initial',
         //     test: /node_modules/,
         //     name: 'core',// 入口的entry的key
         //     enforce: true
         // },
-        commons: {
+        commons: { // 公告模块
           chunks: 'all',
           minSize: 1,
           minChunks: 2,
           name: 'vendor'
+        },
+        vender: {// 第三方
+          priority: 1, // 权重 比commons要重
+          test: /node_modules/,
+          chunks: 'initial',
+          minSize: 1,
+          minChunks: 2
         }
       }
     }

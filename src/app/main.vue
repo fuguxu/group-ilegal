@@ -1,7 +1,7 @@
 <template>
-    <div id="app-reception" class="beauty-scroll-bar">
-        <router-view></router-view>
-    </div>
+  <div id="app-reception" class="beauty-scroll-bar">
+    <router-view></router-view>
+  </div>
 </template>
 <script>
 export default {
@@ -13,7 +13,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    #app-reception{
-        // height: 100%;
-    }
+#app-reception {
+  // height: 100%;
+}
 </style>

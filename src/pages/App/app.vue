@@ -16,6 +16,9 @@ export default {
 
     }
   },
+  mounted () {
+    console.log(headerBar)
+  },
   components: {
     headerBar,
     footerBar

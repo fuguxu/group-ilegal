@@ -15,11 +15,11 @@ const devConfig = {
     disableHostCheck: true
   },
   watch: true,
-  watchOptions:{//监控选项
-    poll:1000,//每秒问我1000次
-    aggregateTimeout:500,//防抖
-    ignored:/node_modules/,//
-    
+  watchOptions: {// 监控选项
+    poll: 1000, // 每秒问我1000次
+    aggregateTimeout: 500, // 防抖
+    ignored: /node_modules/ //
+
   },
   plugins: [
     new OpenBrowserPlugin({ url: 'http://localhost:9999/main.html' })

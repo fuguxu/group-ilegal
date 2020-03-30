@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import app from '../pages/App/app.vue'
-
+console.log(app)
 Vue.use(VueRouter)
 
 const routesMap = [
