@@ -70,7 +70,7 @@
     "mini-css-extract-plugin": "^0.6.0",
     "nightwatch": "^1.1.11",
     "nightwatch-helpers": "^1.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "open-browser-webpack-plugin": "0.0.5",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "phantomjs-prebuilt": "^2.1.16",
