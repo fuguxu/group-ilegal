@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/fuguxu/group-ilegal",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-ui": "^2.7.2",
     "vue": "^2.6.10",
     "vue-i18n": "^8.10.0",
